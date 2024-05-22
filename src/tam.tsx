@@ -17,20 +17,23 @@ const MarketCircle: FunctionalComponent<{
   color: string;
   size: number;
   onClick: () => void;
-}> = ({ value, label, color, size, onClick }) => (
-  <div
-    className="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300"
-    onClick={onClick}
-  >
+}> = ({ value, label, color, size, onClick }) => {
+  const textSize = size * 0.2; // Adjust text size based on circle size
+  return (
     <div
-      className={`flex items-center justify-center rounded-full ${color}`}
-      style={{ width: `${size}px`, height: `${size}px` }}
+      className="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300"
+      onClick={onClick}
     >
-      <span className="text-2xl font-semibold text-white">{value}</span>
+      <div
+        className={`flex items-center justify-center rounded-full ${color}`}
+        style={{ width: `${size}px`, height: `${size}px` }}
+      >
+        <span className="font-semibold text-white" style={{ fontSize: `${textSize}px` }}>{value}</span>
+      </div>
+      <div className="mt-4 text-lg font-medium">{label}</div>
     </div>
-    <div className="mt-4 text-lg font-medium">{label}</div>
-  </div>
-);
+  );
+};
 
 const MarketDetails: FunctionalComponent<{ market: Market }> = ({ market }) => (
   <div className="flex flex-col items-center justify-center min-h-screen p-4 animate-fadeIn">
@@ -107,7 +110,7 @@ const Tam: FunctionalComponent = () => {
   return (
     <div>
       {currentView === 'overview' && (
-        <div className="flex flex-col items-center justify-center min-h-screen p-4 animate-fadeIn">
+        <div className="animate-fadeIn">
           <div className="text-3xl font-semibold mb-12 text-center">Total Addressable Market Overview</div>
           <p className="text-center text-gray-600 mb-8">Click on any market for more details.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center">
