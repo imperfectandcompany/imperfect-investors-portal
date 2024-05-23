@@ -1,16 +1,15 @@
 import { FunctionalComponent } from 'preact';
-import Tam from './Tam';
-
 import MindMap from './Mindmap';
 import { TheProblem } from './TheProblem';
 import { useEffect } from 'preact/hooks';
 import { QuoteTransition } from './QuoteTransition';
-import { ProductGoals } from './ProductGoals';
 import Header from './Header';
 import Navbar from './Navbar';
 import DateInfo from './DateInfo';
 import CalendarCTA from './CalendarCTA';
 import Footer from './Footer';
+import { ProductGoals } from './ProductGoals';
+import Tam from './Tam';
 
 
 
