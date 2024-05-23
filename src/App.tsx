@@ -8,8 +8,8 @@ import Navbar from './Navbar';
 import DateInfo from './DateInfo';
 import CalendarCTA from './CalendarCTA';
 import Footer from './Footer';
-import { ProductGoals } from './ProductGoals';
 import Tam from './Tam';
+import ProductGoals from './ProductGoals';
 
 
 
