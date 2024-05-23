@@ -19,11 +19,13 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Upload to FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      - name: Upload to ftp
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist
-          remote-dir: /usr/www/igfastdl/imperfectandcompany-investors
+          # react project lives in live and build is the version that we want deployed to the remoteDir dev-project
+          localDir: "./dist"
+          remoteDir: "/imperfectandcompany-investors"
+          delete: "true"
